@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Couleurs principales */
+  --olive:        #2A3020;
+  --olive-mid:    #3A4430;
+  --olive-light:  #4A5540;
+  --gold:         #C49A3C;
+  --gold-light:   #D4AA52;
+  --gold-pale:    #E8C878;
+  --gold-ultra:   #F5E4B8;
+  --cream:        #FAF7F2;
+  --cream-2:      #F4EFE6;
+  --cream-3:      #EDE6D8;
+  --ivory:        #FDFAF5;
+  --linen:        #F2EDE4;
+  --sage:         #7A8B63;
+  --sage-light:   #A3B08A;
+  --text-dark:    #1C1F18;
+  --text-mid:     #4A4A42;
+  --text-light:   #8A8478;
+  --white:        #FDFCFA;
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--text-dark);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul { list-style: none; }
+
+::selection { background: var(--gold-ultra); color: var(--olive); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ─── Labels ─── */
+.label {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── Wave dividers ─── */
+.wave-down svg,
+.wave-up svg {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ─── Reveal animations ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Gold button ─── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: var(--gold);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 40px;
+  transition: background 0.3s, transform 0.25s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(196,154,60,0.25);
+}
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(196,154,60,0.35);
+}
+
+/* ─── Outline button ─── */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 34px;
+  background: transparent;
+  color: var(--text-dark);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 40px;
+  border: 1px solid rgba(196,154,60,0.4);
+  transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.25s;
+}
+.btn-outline:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ─── Section padding utilitaire ─── */
+.section-pad {
+  padding: 100px 40px;
+}
+
+/* ─── Keyframes ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { transform: scale(1.07); }
+  to   { transform: scale(1); }
+}

@@ -1,0 +1,398 @@
+.page {
+  background: #F6F1E9;
+  color: #1F1D1A;
+}
+
+.container {
+  width: min(1220px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.hero {
+  width: 100%;
+  overflow: hidden;
+  background: #0F1A14;
+}
+
+.heroImage {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.label,
+.labelCenter {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #C6A16E;
+}
+
+.labelCenter {
+  text-align: center;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.sectionTitle {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  color: #1F1D1A;
+  margin-bottom: 42px;
+}
+
+.conviction {
+  padding: 78px 0 86px;
+  background: #F3ECE2;
+}
+
+.conviction .container {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 54px;
+  align-items: center;
+}
+
+.convictionTitle {
+  font-family: var(--serif);
+  font-size: clamp(34px, 3.5vw, 50px);
+  line-height: 1.2;
+  font-weight: 400;
+  margin-top: 14px;
+}
+
+.convictionTitle em {
+  font-style: italic;
+  color: #718066;
+}
+
+.convictionBody {
+  margin-top: 22px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #5F5A53;
+  max-width: 520px;
+}
+
+.convictionImages {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr;
+  gap: 14px;
+}
+
+.convictionImages img {
+  width: 100%;
+  aspect-ratio: 1 / 0.92;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(31,29,26,0.08);
+}
+
+.duo {
+  padding: 12px 0 86px;
+  background: #F6F1E9;
+}
+
+.duoHead {
+  text-align: center;
+  margin-bottom: 38px;
+}
+
+.duoGrid {
+  display: grid;
+  grid-template-columns: 1fr 180px 1fr;
+  gap: 26px;
+  align-items: center;
+}
+
+.personCard {
+  text-align: center;
+}
+
+.personPhoto {
+  width: 132px;
+  height: 132px;
+  margin: 0 auto 18px;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(31,29,26,0.08);
+}
+
+.personPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.personCard h3 {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1F1D1A;
+}
+
+.personRole {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #718066;
+}
+
+.personCard p:last-child {
+  margin: 12px auto 0;
+  max-width: 290px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #5F5A53;
+}
+
+.duoCenterMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.duoCenterMark img {
+  width: 90px;
+  height: auto;
+  opacity: 0.95;
+}
+
+.band {
+  position: relative;
+  background:
+    linear-gradient(rgba(23, 27, 18, 0.72), rgba(23, 27, 18, 0.72)),
+    url("/images/ambiance/first-dance.png") center/cover no-repeat;
+  color: #fff;
+  padding: 68px 0 76px;
+}
+
+.bandInner {
+  position: relative;
+  width: min(1220px, calc(100% - 48px));
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bandTitle {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1.24;
+  color: #FDF9F3;
+}
+
+.bandFacts {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.bandFacts div {
+  padding-top: 18px;
+  border-top: 1px solid rgba(232, 207, 164, 0.18);
+}
+
+.bandFacts strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 20px;
+  color: #E8CFA4;
+  font-weight: 500;
+}
+
+.bandFacts span {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(253, 249, 243, 0.7);
+}
+
+.prestations {
+  padding: 86px 0 92px;
+  background: #F6F1E9;
+}
+
+.prestationsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.prestationCard {
+  background: #FCF8F2;
+  border: 1px solid rgba(198, 161, 110, 0.14);
+  border-radius: 12px;
+  padding: 14px 14px 18px;
+}
+
+.prestationCard img {
+  width: 100%;
+  aspect-ratio: 1.08 / 0.86;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.prestationCard h3 {
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #1F1D1A;
+}
+
+.prestationCard p {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #5F5A53;
+}
+
+.pricing {
+  padding: 0 0 96px;
+  background: #F6F1E9;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.priceCard {
+  background: #FCF8F2;
+  border: 1px solid rgba(198, 161, 110, 0.14);
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+
+.featured {
+  background: #F3EADF;
+  border-color: rgba(198, 161, 110, 0.3);
+  transform: translateY(-4px);
+}
+
+.priceCard h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: #1F1D1A;
+}
+
+.priceText {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #5F5A53;
+}
+
+.priceCard ul {
+  margin-top: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.priceCard li {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #5F5A53;
+}
+
+.priceWrap {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price {
+  font-family: var(--serif);
+  font-size: 42px;
+  line-height: 1;
+  color: #1F1D1A;
+}
+
+.priceWrap small {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C6A16E;
+}
+
+.finalCta {
+  background: #12160F;
+  padding: 96px 0 104px;
+  text-align: center;
+}
+
+.finalTitle {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.1;
+  font-weight: 400;
+  color: #FDF9F3;
+}
+
+.finalText {
+  margin: 20px auto 0;
+  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(253, 249, 243, 0.72);
+}
+
+.ctaButton {
+  margin-top: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: #C6A16E;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  .conviction .container,
+  .bandFacts,
+  .prestationsGrid,
+  .pricingGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .duoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .convictionImages {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .container,
+  .bandInner {
+    width: min(100% - 32px, 1220px);
+  }
+
+  .conviction .container,
+  .bandFacts,
+  .prestationsGrid,
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured {
+    transform: none;
+  }
+}

@@ -1,0 +1,52 @@
+import { Link } from 'react-router-dom'
+import s from './Footer.module.css'
+
+export default function Footer() {
+  return (
+    <footer className={s.footer}>
+      <div className={s.botanical} aria-hidden>
+        <svg viewBox="0 0 180 400" fill="none">
+          <path d="M90 390 Q88 290 105 190 Q120 100 150 20" stroke="#C49A3C" strokeWidth="0.8" opacity="0.5"/>
+          <ellipse cx="120" cy="140" rx="28" ry="11" fill="#7A8B63" opacity="0.22" transform="rotate(32 120 140)"/>
+          <ellipse cx="135" cy="200" rx="22" ry="9" fill="#7A8B63" opacity="0.18" transform="rotate(48 135 200)"/>
+          <ellipse cx="110" cy="90" rx="20" ry="8" fill="#7A8B63" opacity="0.16" transform="rotate(18 110 90)"/>
+          <ellipse cx="145" cy="255" rx="24" ry="10" fill="#7A8B63" opacity="0.15" transform="rotate(58 145 255)"/>
+        </svg>
+      </div>
+
+      <div className={s.inner}>
+        <div className={s.brand}>
+          <svg width="44" height="44" viewBox="0 0 80 80" fill="none">
+            <path d="M52 10 A28 28 0 1 1 10 52" stroke="#C49A3C" strokeWidth="1.2" fill="none" opacity="0.65"/>
+            <text x="23" y="40" fontFamily="Cormorant Garamond,serif" fontSize="23" fontWeight="600" fill="#C49A3C">M</text>
+            <text x="26" y="59" fontFamily="Cormorant Garamond,serif" fontSize="20" fontWeight="400" fill="#C49A3C">C</text>
+          </svg>
+          <p className={s.name}>Maison Camelys</p>
+          <p className={s.tagline}>Orchestrons vos plus beaux moments</p>
+        </div>
+
+        <div className={s.links}>
+          {[
+            ['/', 'Accueil'],
+            ['/prestations', 'Prestations'],
+            ['/a-propos', 'À propos'],
+            ['/contact', 'Contact'],
+          ].map(([p, l]) => (
+            <Link key={p} to={p} className={s.link}>{l}</Link>
+          ))}
+        </div>
+
+        <div className={s.contact}>
+          <a href="mailto:contact@maisoncamelys.fr" className={s.email}>
+            contact@maisoncamelys.fr
+          </a>
+          <p className={s.zone}>Partout en France</p>
+        </div>
+      </div>
+
+      <div className={s.bottom}>
+        <p>© 2025 Maison Camelys &nbsp;·&nbsp; Tous droits réservés</p>
+      </div>
+    </footer>
+  )
+}

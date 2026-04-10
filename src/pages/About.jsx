@@ -1,0 +1,146 @@
+import { Link } from 'react-router-dom'
+import { useReveal } from '../hooks/useReveal'
+import s from './About.module.css'
+
+// Images Unsplash — CDN stable, licence libre
+const HERO_IMG = "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=85&fit=crop"
+const IMG2    = "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=900&q=80&fit=crop"
+const IMG3    = "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&q=80&fit=crop"
+
+const VALEURS = [
+  { v: 'Discrétion',    t: "Présents sans être visibles. C'est notre manière de travailler." },
+  { v: 'Attention',     t: "Nous observons, anticipons, réagissons — avant que vous n'ayez à le faire." },
+  { v: 'Bienveillance', t: "Envers vous, vos invités, vos enfants. C'est notre état d'esprit permanent." },
+  { v: 'Intégrité',     t: "Nous disons ce que nous faisons. Et nous faisons exactement ce que nous promettons." },
+]
+
+export default function About() {
+  useReveal()
+
+  return (
+    <main>
+      {/* HERO */}
+      <section className={s.hero}>
+        <img src={HERO_IMG} alt="" className={s.heroImg}/>
+        <div className={s.heroOverlay}/>
+        <div className={s.heroContent}>
+          <span className="label" style={{ color:'rgba(196,154,60,0.7)' }}>À propos</span>
+          <h1 className={s.heroTitle}>
+            Une présence humaine,<br/>
+            au coeur de <em>votre mariage.</em>
+          </h1>
+          <p className={s.heroSub}>
+            Maison Camelys est née d'une volonté simple&nbsp;: permettre aux mariés de vivre pleinement
+            leur journée, entourés, accompagnés et sereins.
+          </p>
+        </div>
+        <div className={s.heroWave}>
+          <svg viewBox="0 0 1440 64" preserveAspectRatio="none">
+            <path d="M0,64 C480,0 960,0 1440,64 L1440,64 L0,64 Z" fill="#FAF7F2"/>
+          </svg>
+        </div>
+      </section>
+
+      {/* VISION */}
+      <section className={s.vision}>
+        <div className={s.visionInner}>
+          <div className={`${s.visionText} reveal`}>
+            <span className="label">Notre vision</span>
+            <h2 className={s.visionTitle}>Nous ne cherchons pas à occuper l'espace.</h2>
+            <p className={s.visionBody}>
+              Nous sommes là pour faciliter, accompagner, et permettre à chaque moment d'exister pleinement.
+            </p>
+            <p className={s.visionBody}>
+              Un mariage va bien au-delà d'un simple événement. C'est la journée la plus chargée en émotions
+              de votre vie — et nous voulons que vous en soyez pleinement présents.
+            </p>
+            <p className={s.visionBody}>
+              Notre approche repose sur une conviction&nbsp;: les plus beaux moments sont ceux qui se vivent naturellement.
+            </p>
+          </div>
+          <div className={`${s.visionImg} reveal`} style={{ transitionDelay:'160ms' }}>
+            <img src={IMG2} alt="Maison Camelys"/>
+          </div>
+        </div>
+      </section>
+
+      {/* DUO */}
+      <section className={s.duo}>
+        <div className={s.duoInner}>
+          <div className="reveal" style={{ textAlign:'center', marginBottom:'64px' }}>
+            <span className="label">Le duo</span>
+            <h2 className={s.duoTitle}>Florian &amp; Camille</h2>
+            <p className={s.duoIntro}>
+              Nous intervenons avec discrétion, nous nous adaptons à votre rythme
+              et faisons de notre présence une ambiance juste et élégante.
+            </p>
+          </div>
+
+          <div className={s.duoGrid}>
+            <div className={`${s.duoCard} reveal`}>
+              <div className={s.duoImgWrap}>
+                <img src={IMG2} alt="Florian"/>
+              </div>
+              <div className={s.duoCardContent}>
+                <h3 className={s.duoName}>Florian</h3>
+                <span className={s.duoRole}>Orchestration &amp; ambiance</span>
+                <p className={s.duoDesc}>
+                  Il coordonne chaque moment avec soin, anticipe les frictions, guide la fluidité de la journée
+                  et veille à ce que tout soit parfait dans les coulisses. Sa présence rassure sans jamais s'imposer.
+                </p>
+                <blockquote className={s.duoQuote}>
+                  "Un mariage bien orchestré, c'est celui dont les mariés se souviennent parce qu'ils y étaient vraiment."
+                </blockquote>
+              </div>
+            </div>
+
+            <div className={`${s.duoCard} reveal`} style={{ transitionDelay:'150ms' }}>
+              <div className={s.duoImgWrap}>
+                <img src={IMG3} alt="Camille"/>
+              </div>
+              <div className={s.duoCardContent}>
+                <h3 className={s.duoName}>Camille</h3>
+                <span className={s.duoRole}>Enfants &amp; bienveillance</span>
+                <p className={s.duoDesc}>
+                  Elle prend soin de chaque enfant avec douceur et créativité. Grâce à son expérience BAFA,
+                  elle sait créer un espace chaleureux où chaque enfant trouve sa place.
+                </p>
+                <blockquote className={s.duoQuote}>
+                  "Quand les enfants vont bien, les parents le sentent. Ils peuvent enfin lâcher prise."
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VALEURS */}
+      <section className={s.valeurs}>
+        <div className={s.valeursInner}>
+          <div className="reveal" style={{ textAlign:'center' }}>
+            <span className="label" style={{ color:'rgba(196,154,60,0.7)' }}>Ce qui nous guide</span>
+            <h2 className={s.valeursTitle}>Nos valeurs</h2>
+          </div>
+          <div className={s.valeursGrid}>
+            {VALEURS.map((item, i) => (
+              <div key={i} className={`${s.valeur} reveal`} style={{ transitionDelay:`${i * 100}ms` }}>
+                <h3 className={s.valeurTitle}>{item.v}</h3>
+                <p className={s.valeurText}>{item.t}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className={s.cta}>
+        <div className="reveal">
+          <span className="label" style={{ color:'rgba(196,154,60,0.65)' }}>Contact</span>
+          <h2 className={s.ctaTitle}>Nous rencontrer.</h2>
+          <p className={s.ctaSub}>Un échange simple. Sans engagement. Pour voir si nous sommes faits pour travailler ensemble.</p>
+          <Link to="/contact" className={s.ctaBtn}>Parlons de votre projet</Link>
+        </div>
+      </section>
+    </main>
+  )
+}

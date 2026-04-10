@@ -1,0 +1,120 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(198, 161, 110, 0.06), transparent 24%),
+    linear-gradient(180deg, #1C2417 0%, #182016 100%);
+  color: rgba(247, 242, 234, 0.72);
+  padding: 84px 0 34px;
+}
+
+.inner {
+  width: min(1280px, calc(100% - 80px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footerLogo {
+  width: 168px;
+  height: auto;
+  display: block;
+  margin-bottom: 22px;
+  object-fit: contain;
+}
+
+.tagline {
+  max-width: 280px;
+  font-size: 11px;
+  line-height: 1.9;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 234, 0.42);
+}
+
+.center {
+  display: grid;
+  justify-content: center;
+  gap: 26px;
+}
+
+.center a {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 234, 0.72);
+  transition: color 0.25s ease;
+}
+
+.center a:hover {
+  color: #C6A16E;
+}
+
+.right {
+  display: grid;
+  justify-content: end;
+  gap: 24px;
+  text-align: right;
+}
+
+.right a {
+  color: rgba(247, 242, 234, 0.72);
+  font-size: 12px;
+}
+
+.right p {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 242, 234, 0.32);
+}
+
+.bottom {
+  width: min(1280px, calc(100% - 80px));
+  margin: 56px auto 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(198, 161, 110, 0.18);
+  text-align: center;
+}
+
+.bottom span {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(247, 242, 234, 0.28);
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    width: min(100% - 32px, 1280px);
+  }
+
+  .left,
+  .center,
+  .right {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerLogo {
+    width: 150px;
+  }
+
+  .tagline {
+    max-width: 100%;
+  }
+
+  .bottom {
+    width: min(100% - 32px, 1280px);
+  }
+}
