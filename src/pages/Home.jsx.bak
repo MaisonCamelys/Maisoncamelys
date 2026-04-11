@@ -250,7 +250,7 @@ export default function Home() {
 
           <div className={`${styles.timelineHero} reveal reveal-up reveal-delay-1`}>
             <img
-              src="/images/A16.png"
+              src="/images/sections/welcome.png"
               alt="Accueil et orchestration élégante d’un mariage"
               className={styles.timelineHeroImage}
             />
@@ -268,7 +268,7 @@ export default function Home() {
             <article className={`${styles.timelineScene} ${styles.timelineScenePrimary} reveal reveal-up`}>
               <div className={styles.timelineSceneMedia}>
                 <img
-                  src="/images/A13.png"
+                  src="/images/sections/welcome.png"
                   alt="Mariage orchestré avec fluidité dès l’accueil des invités"
                 />
               </div>
@@ -297,7 +297,7 @@ export default function Home() {
               </div>
               <div className={styles.timelineSceneMedia}>
                 <img
-                  src="/images/A29.png"
+                  src="/images/sections/kids-coordinator.png"
                   alt="Enfants accompagnés avec douceur pendant un mariage"
                 />
               </div>
@@ -306,7 +306,7 @@ export default function Home() {
             <article className={`${styles.timelineScene} reveal reveal-up reveal-delay-2`}>
               <div className={styles.timelineSceneMedia}>
                 <img
-                  src="/images/A24.png"
+                  src="/images/hero/hero-side.png"
                   alt="Première danse et ambiance élégante de soirée"
                 />
               </div>

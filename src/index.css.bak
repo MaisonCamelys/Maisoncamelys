@@ -154,19 +154,3 @@ ul { list-style: none; }
   from { transform: scale(1.07); }
   to   { transform: scale(1); }
 }
-
-
-/* Reveal fallback global */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal.revealed,
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-

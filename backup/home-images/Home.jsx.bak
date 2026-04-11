@@ -13,12 +13,12 @@ const prestations = [
     desc: "Des activités adaptées et une présence bienveillante tout au long de la journée.",
   },
   {
-    img: "/images/details/table-setting.png",
+    img: "/images/details/table.png",
     title: "Souvenirs\nphoto & vidéo",
     desc: "Des images naturelles et pleines d’émotion, sans mise en scène.",
   },
   {
-    img: "/images/hero/hero-side.png",
+    img: "/images/ambiance/first-dance.png",
     title: "Ambiance\nsoirée dansante",
     desc: "Un DJ passionné pour faire monter l’énergie et créer une vraie soirée.",
   },
@@ -121,7 +121,7 @@ export default function Home() {
 
             <div className={styles.convictionVisual}>
               <div className={`${styles.convictionMainCard} reveal reveal-up reveal-delay-1`}>
-                <img src="/images/details/table-setting.png" alt="Table élégante de mariage" />
+                <img src="/images/details/table.png" alt="Table élégante de mariage" />
               </div>
 
               <div className={styles.convictionSideGrid}>
@@ -129,7 +129,7 @@ export default function Home() {
                   <img src="/images/sections/kids-walk.png" alt="Enfants accompagnés pendant le mariage" />
                 </div>
                 <div className={`${styles.convictionSmallCard} reveal reveal-up reveal-delay-2`}>
-                  <img src="/images/hero/hero-side.png" alt="Ouverture de bal et ambiance du soir" />
+                  <img src="/images/ambiance/first-dance.png" alt="Ouverture de bal et ambiance du soir" />
                 </div>
               </div>
             </div>
@@ -250,7 +250,7 @@ export default function Home() {
 
           <div className={`${styles.timelineHero} reveal reveal-up reveal-delay-1`}>
             <img
-              src="/images/A16.png"
+              src="/images/experience/welcome.png"
               alt="Accueil et orchestration élégante d’un mariage"
               className={styles.timelineHeroImage}
             />
@@ -268,7 +268,7 @@ export default function Home() {
             <article className={`${styles.timelineScene} ${styles.timelineScenePrimary} reveal reveal-up`}>
               <div className={styles.timelineSceneMedia}>
                 <img
-                  src="/images/A13.png"
+                  src="/images/experience/welcome.png"
                   alt="Mariage orchestré avec fluidité dès l’accueil des invités"
                 />
               </div>
@@ -297,7 +297,7 @@ export default function Home() {
               </div>
               <div className={styles.timelineSceneMedia}>
                 <img
-                  src="/images/A29.png"
+                  src="/images/experience/kids-atelier.png"
                   alt="Enfants accompagnés avec douceur pendant un mariage"
                 />
               </div>
@@ -306,7 +306,7 @@ export default function Home() {
             <article className={`${styles.timelineScene} reveal reveal-up reveal-delay-2`}>
               <div className={styles.timelineSceneMedia}>
                 <img
-                  src="/images/A24.png"
+                  src="/images/ambiance/first-dance.png"
                   alt="Première danse et ambiance élégante de soirée"
                 />
               </div>

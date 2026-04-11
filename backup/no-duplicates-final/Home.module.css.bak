@@ -307,7 +307,7 @@
   position: relative;
   background:
     linear-gradient(rgba(23, 27, 18, 0.72), rgba(23, 27, 18, 0.72)),
-    url("/siteimg/A26.png") center/cover no-repeat;
+    url("/images/ambiance/first-dance.png") center/cover no-repeat;
   color: #fff;
   padding: 68px 0 76px;
 }
