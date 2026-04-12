@@ -1,0 +1,502 @@
+import { Link } from 'react-router-dom'
+import { useReveal } from '../hooks/useReveal'
+
+const services = [
+  {
+    number: '01',
+    eyebrow: 'Orchestration',
+    title: 'Une journée tenue avec calme, précision et discrétion.',
+    description:
+      "Nous coordonnons les temps forts, accompagnons les transitions et veillons à ce que chaque moment trouve sa place avec naturel. Notre présence n’envahit jamais votre mariage : elle le rend fluide, lisible et serein.",
+    points: [
+      'Coordination des temps clés',
+      'Gestion fluide des transitions',
+      'Présence calme face aux imprévus',
+    ],
+    image: '/images/A31.png',
+    alt: "Accueil et orchestration élégante d’un mariage",
+  },
+  {
+    number: '02',
+    eyebrow: 'Enfants',
+    title: 'Les enfants trouvent leur place, les parents respirent pleinement.',
+    description:
+      "Les enfants font partie de la fête. Nous créons pour eux un cadre doux, vivant et rassurant, afin qu’ils profitent eux aussi de la journée. Pendant ce temps, les parents vivent chaque instant avec plus de légèreté.",
+    image: '/images/A27.png',
+    alt: 'Enfants accompagnés avec douceur pendant un mariage',
+  },
+  {
+    number: '03',
+    eyebrow: 'Souvenirs',
+    title: 'Des images sincères, fidèles à l’atmosphère vécue.',
+    description:
+      "Nous capturons les moments tels qu’ils se présentent, avec simplicité et sensibilité. Des regards, des gestes, des émotions vraies… pour laisser une trace élégante, naturelle et profondément vivante de votre journée.",
+    image: '/images/A33.png',
+    alt: 'Moment intime et naturel entre les mariés',
+  },
+  {
+    number: '04',
+    eyebrow: 'Soirée',
+    title: 'Quand la journée s’ouvre naturellement vers la fête.',
+    description:
+      "Lorsque la soirée commence, nous accompagnons la montée en énergie avec justesse. La musique, le rythme et l’ambiance s’installent sans rupture, dans une continuité élégante, jamais forcée, toujours juste.",
+    points: [
+      'Montée progressive de l’énergie',
+      'Ambiance élégante et naturelle',
+      'Continuité jusque dans la soirée',
+    ],
+    image: '/images/A26.png',
+    alt: 'Première danse et ambiance de soirée élégante',
+  },
+]
+
+const packs = [
+  {
+    name: 'Expérience Essentielle',
+    intro: 'Une présence discrète et structurante pour les moments clés.',
+    result: 'Une journée claire, fluide et sans tension.',
+    price: 'À partir de 1300€',
+  },
+  {
+    name: 'Expérience Signature',
+    badge: 'La plus choisie',
+    intro: 'L’équilibre idéal entre accompagnement, sérénité et présence.',
+    result: 'Vous profitez pleinement, tout est tenu avec justesse.',
+    price: '1700€ à 2100€',
+    featured: true,
+  },
+  {
+    name: 'Expérience Complète',
+    intro: 'Une prise en charge plus large, pensée pour une journée sans compromis.',
+    result: 'Une expérience plus ample, des souvenirs plus durables.',
+    price: '2200€ à 2600€',
+  },
+]
+
+function SectionKicker({ children }) {
+  return (
+    <p className="text-[11px] uppercase tracking-[0.24em] text-[#C6A16E]">
+      {children}
+    </p>
+  )
+}
+
+function SectionTitle({ children, className = '' }) {
+  return (
+    <h2
+      className={['text-[clamp(2rem,3vw,3.4rem)] leading-[1.08] text-[#1F1D1A]', className].join(' ')}
+      style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+    >
+      {children}
+    </h2>
+  )
+}
+
+function PackCard({ pack }) {
+  const featured = pack.featured
+
+  return (
+    <article
+      className={[
+        'relative h-full rounded-[28px] border px-7 py-8 md:px-8 md:py-9',
+        featured
+          ? 'border-[#26311B] bg-[#24301A] text-[#F7F3EE] shadow-[0_18px_45px_rgba(31,29,26,0.10)]'
+          : 'border-[#DDD4C9] bg-[#FCFAF7] text-[#1F1D1A] shadow-[0_10px_28px_rgba(31,29,26,0.04)]',
+      ].join(' ')}
+    >
+      {pack.badge ? (
+        <div className="mb-5 inline-flex rounded-full bg-[#D0A54A] px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-white">
+          {pack.badge}
+        </div>
+      ) : null}
+
+      <h3
+        className="max-w-[240px] text-[clamp(2rem,2.2vw,2.7rem)] leading-[1.02]"
+        style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+      >
+        {pack.name}
+      </h3>
+
+      <p className={featured ? 'mt-5 text-[15px] leading-8 text-[#DDD6CC]' : 'mt-5 text-[15px] leading-8 text-[#615B54]'}>
+        {pack.intro}
+      </p>
+
+      <div className={featured ? 'mt-8 border-t border-white/10 pt-7' : 'mt-8 border-t border-[#E8E0D6] pt-7'}>
+        <p className="text-[11px] uppercase tracking-[0.2em] text-[#C6A16E]">
+          Résultat
+        </p>
+        <p className={featured ? 'mt-3 text-[16px] leading-8 text-[#F4EEE3]' : 'mt-3 text-[16px] leading-8 text-[#2D2A26]'}>
+          {pack.result}
+        </p>
+      </div>
+
+      <div className="mt-9">
+        <p
+          className={featured ? 'text-[clamp(2.1rem,2.5vw,3rem)] text-[#D8B36A]' : 'text-[clamp(2.1rem,2.5vw,3rem)] text-[#1F1D1A]'}
+          style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+        >
+          {pack.price}
+        </p>
+      </div>
+
+      <div className="mt-8">
+        <Link
+          to="/contact"
+          className={[
+            'inline-flex items-center rounded-full px-6 py-3 text-[11px] uppercase tracking-[0.18em] transition',
+            featured
+              ? 'bg-[#D0A54A] text-white hover:opacity-90'
+              : 'border border-[#D8D0C6] text-[#1F1D1A] hover:bg-[#F4EEE5]',
+          ].join(' ')}
+        >
+          Nous écrire
+        </Link>
+      </div>
+    </article>
+  )
+}
+
+export default function Prestations() {
+  useReveal()
+
+  const orchestration = services[0]
+  const enfants = services[1]
+  const souvenirs = services[2]
+  const soiree = services[3]
+
+  return (
+    <main className="bg-[#F7F3EE] text-[#1F1D1A]">
+      <section className="relative isolate overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/hero/hero-main.png"
+            alt="Maison Camelys accompagne les mariés avec élégance"
+            className="h-[68vh] min-h-[560px] w-full object-cover object-center md:h-[74vh]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(18,18,16,0.24),rgba(18,18,16,0.56))]" />
+        </div>
+
+        <div className="relative mx-auto flex min-h-[68vh] w-[min(1180px,calc(100%-2rem))] items-end py-12 md:w-[min(1180px,calc(100%-3rem))] md:py-16">
+          <div className="max-w-[620px] text-[#FCFAF7]">
+            <p className="reveal text-[11px] uppercase tracking-[0.24em] text-[#D8B36A]">
+              Nos accompagnements
+            </p>
+
+            <h1
+              className="reveal mt-5 text-[clamp(2.6rem,4.8vw,4.8rem)] leading-[1.02]"
+              style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+            >
+              Une présence élégante, pensée pour tenir votre journée sans la dénaturer.
+            </h1>
+
+            <p className="reveal mt-6 max-w-[540px] text-[15px] leading-8 text-[#F2EBE2] md:text-[17px]">
+              Maison Camelys accompagne votre mariage avec fluidité, attention et discrétion,
+              pour que chaque moment trouve naturellement sa place.
+            </p>
+
+            <a
+              href="#experience"
+              className="reveal mt-8 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-[11px] uppercase tracking-[0.18em] text-white backdrop-blur-sm transition hover:bg-white/16"
+            >
+              Découvrir l’expérience
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" className="relative z-10 -mt-6 pb-16 md:-mt-8 md:pb-20">
+        <div className="mx-auto w-[min(1120px,calc(100%-2rem))] md:w-[min(1120px,calc(100%-3rem))]">
+          <div className="reveal rounded-[28px] border border-[#DDD4C9] bg-[#FCFAF7]/96 px-6 py-7 shadow-[0_10px_30px_rgba(31,29,26,0.04)] md:px-10 md:py-8">
+            <div className="grid gap-6 md:grid-cols-[1.15fr_0.85fr] md:gap-10">
+              <div>
+                <SectionKicker>Repositionnement</SectionKicker>
+                <SectionTitle className="mt-4 max-w-[660px]">
+                  Un mariage ne se résume pas à une suite de prestations.
+                </SectionTitle>
+              </div>
+
+              <div className="flex items-end">
+                <p className="max-w-[420px] text-[15px] leading-8 text-[#5F5952]">
+                  C’est une expérience faite de rythmes, de détails, d’invités à accueillir
+                  et d’émotions à préserver. Notre rôle est de lui donner une continuité élégante,
+                  du premier accueil jusqu’à la soirée.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 md:pb-24">
+        <div className="mx-auto w-[min(1120px,calc(100%-2rem))] md:w-[min(1120px,calc(100%-3rem))]">
+          <div className="reveal mb-14 max-w-[760px]">
+            <SectionKicker>L’expérience Camelys</SectionKicker>
+            <SectionTitle className="mt-4 max-w-[720px]">
+              Une présence fluide, pensée pour accompagner sans jamais alourdir.
+            </SectionTitle>
+            <p className="mt-5 max-w-[680px] text-[15px] leading-8 text-[#5F5952]">
+              Chaque intervention s’intègre naturellement à votre journée, accompagne vos invités,
+              protège votre sérénité et laisse la place à ce qui compte vraiment.
+            </p>
+          </div>
+
+          <article className="reveal grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-14">
+            <div className="overflow-hidden rounded-[30px] border border-[#DDD4C9] bg-[#FCFAF7] shadow-[0_14px_34px_rgba(31,29,26,0.05)]">
+              <img
+                src={orchestration.image}
+                alt={orchestration.alt}
+                className="h-[360px] w-full object-cover transition duration-700 ease-out hover:scale-[1.02] md:h-[520px]"
+              />
+            </div>
+
+            <div>
+              <div
+                className="text-[48px] leading-none text-[#C6A16E] md:text-[64px]"
+                style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+              >
+                {orchestration.number}
+              </div>
+
+              <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-[#8C857D]">
+                {orchestration.eyebrow}
+              </p>
+
+              <h3
+                className="mt-4 max-w-[500px] text-[clamp(1.95rem,2.7vw,3.15rem)] leading-[1.08] text-[#1F1D1A]"
+                style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+              >
+                {orchestration.title}
+              </h3>
+
+              <p className="mt-5 max-w-[500px] text-[15px] leading-8 text-[#5F5952]">
+                {orchestration.description}
+              </p>
+
+              <ul className="mt-7 space-y-3">
+                {orchestration.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-[15px] leading-7 text-[#5F5952]">
+                    <span className="mt-[11px] inline-block h-px w-5 shrink-0 bg-[#C6A16E]" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+
+          <div className="mt-16 grid gap-12 lg:grid-cols-2">
+            <article className="reveal">
+              <div className="overflow-hidden rounded-[28px] border border-[#DDD4C9] bg-[#FCFAF7] shadow-[0_12px_30px_rgba(31,29,26,0.04)]">
+                <img
+                  src={enfants.image}
+                  alt={enfants.alt}
+                  className="h-[300px] w-full object-cover transition duration-700 ease-out hover:scale-[1.02] md:h-[380px]"
+                />
+              </div>
+
+              <div className="mt-7">
+                <div
+                  className="text-[40px] leading-none text-[#C6A16E] md:text-[52px]"
+                  style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+                >
+                  {enfants.number}
+                </div>
+
+                <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-[#8C857D]">
+                  {enfants.eyebrow}
+                </p>
+
+                <h3
+                  className="mt-4 max-w-[460px] text-[clamp(1.75rem,2.2vw,2.5rem)] leading-[1.12] text-[#1F1D1A]"
+                  style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+                >
+                  {enfants.title}
+                </h3>
+
+                <p className="mt-4 max-w-[500px] text-[15px] leading-8 text-[#5F5952]">
+                  {enfants.description}
+                </p>
+              </div>
+            </article>
+
+            <article className="reveal lg:pt-16">
+              <div className="overflow-hidden rounded-[28px] border border-[#DDD4C9] bg-[#FCFAF7] shadow-[0_12px_30px_rgba(31,29,26,0.04)]">
+                <img
+                  src={souvenirs.image}
+                  alt={souvenirs.alt}
+                  className="h-[300px] w-full object-cover transition duration-700 ease-out hover:scale-[1.02] md:h-[380px]"
+                />
+              </div>
+
+              <div className="mt-7">
+                <div
+                  className="text-[40px] leading-none text-[#C6A16E] md:text-[52px]"
+                  style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+                >
+                  {souvenirs.number}
+                </div>
+
+                <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-[#8C857D]">
+                  {souvenirs.eyebrow}
+                </p>
+
+                <h3
+                  className="mt-4 max-w-[460px] text-[clamp(1.75rem,2.2vw,2.5rem)] leading-[1.12] text-[#1F1D1A]"
+                  style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+                >
+                  {souvenirs.title}
+                </h3>
+
+                <p className="mt-4 max-w-[500px] text-[15px] leading-8 text-[#5F5952]">
+                  {souvenirs.description}
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 md:pb-24">
+        <div className="mx-auto w-[min(1120px,calc(100%-2rem))] md:w-[min(1120px,calc(100%-3rem))]">
+          <article className="reveal relative overflow-hidden rounded-[30px] border border-[#D7CFC4] bg-[#1F2619]">
+            <div className="absolute inset-0">
+              <img
+                src={soiree.image}
+                alt={soiree.alt}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,23,17,0.82)_0%,rgba(19,23,17,0.62)_48%,rgba(19,23,17,0.34)_100%)]" />
+            </div>
+
+            <div className="relative px-6 py-10 text-[#FCFAF7] md:px-10 md:py-12 lg:w-[56%] lg:px-14 lg:py-16">
+              <div
+                className="text-[44px] leading-none text-[#D8B36A] md:text-[58px]"
+                style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+              >
+                {soiree.number}
+              </div>
+
+              <p className="mt-4 text-[11px] uppercase tracking-[0.22em] text-[#D8CEC0]">
+                {soiree.eyebrow}
+              </p>
+
+              <h3
+                className="mt-4 max-w-[480px] text-[clamp(1.9rem,2.8vw,3rem)] leading-[1.08]"
+                style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+              >
+                {soiree.title}
+              </h3>
+
+              <p className="mt-5 max-w-[500px] text-[15px] leading-8 text-[#EEE6DA]">
+                {soiree.description}
+              </p>
+
+              <ul className="mt-7 space-y-3">
+                {soiree.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-[15px] leading-7 text-[#EEE6DA]">
+                    <span className="mt-[11px] inline-block h-px w-5 shrink-0 bg-[#D8B36A]" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="pb-18 md:pb-22">
+        <div className="mx-auto grid w-[min(1120px,calc(100%-2rem))] gap-5 md:w-[min(1120px,calc(100%-3rem))] lg:grid-cols-[1.05fr_0.95fr]">
+          <article className="reveal rounded-[26px] border border-[#DDD4C9] bg-[#FCFAF7] px-6 py-7 md:px-8 md:py-8">
+            <SectionKicker>Notre approche</SectionKicker>
+            <h3
+              className="mt-4 max-w-[520px] text-[clamp(1.9rem,2.7vw,3rem)] leading-[1.08] text-[#1F1D1A]"
+              style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+            >
+              Nous ne proposons pas une animation. Nous créons une continuité d’expérience.
+            </h3>
+            <p className="mt-5 max-w-[520px] text-[15px] leading-8 text-[#5F5952]">
+              Une présence humaine, attentive et adaptable, au service de votre mariage.
+              Notre rôle n’est pas d’ajouter du bruit, mais d’alléger la journée et de permettre
+              à chaque moment d’exister pleinement.
+            </p>
+          </article>
+
+          <article className="reveal rounded-[26px] border border-[#DDD4C9] bg-[#F4EEE4] px-6 py-7 md:px-8 md:py-8">
+            <SectionKicker>Adaptation</SectionKicker>
+            <h3
+              className="mt-4 max-w-[430px] text-[clamp(1.8rem,2.4vw,2.7rem)] leading-[1.1] text-[#1F1D1A]"
+              style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+            >
+              Chaque mariage est unique.
+            </h3>
+            <p className="mt-5 max-w-[500px] text-[15px] leading-8 text-[#5F5952]">
+              Nous adaptons notre accompagnement à votre journée, à votre lieu, à vos envies et à vos invités.
+              C’est cette souplesse qui permet à l’expérience de rester juste, fluide et profondément personnelle.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="pb-20 md:pb-24">
+        <div className="mx-auto w-[min(1120px,calc(100%-2rem))] md:w-[min(1120px,calc(100%-3rem))]">
+          <div className="reveal mx-auto max-w-[760px] text-center">
+            <SectionKicker>Les accompagnements</SectionKicker>
+            <SectionTitle className="mt-4">
+              Des formules pensées pour s’adapter à votre journée.
+            </SectionTitle>
+            <p className="mt-5 text-[15px] leading-8 text-[#5F5952]">
+              Chaque mariage est différent. Nous avons conçu plusieurs niveaux d’accompagnement
+              pour vous proposer une présence fluide, élégante et cohérente avec votre événement.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-3 lg:items-start">
+            {packs.map((pack) => (
+              <div
+                key={pack.name}
+                className={[
+                  'reveal',
+                  pack.featured ? 'lg:-translate-y-3' : '',
+                ].join(' ')}
+              >
+                <PackCard pack={pack} />
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-7 text-center text-[14px] leading-7 text-[#7B746C]">
+            Des ajustements restent ensuite possibles selon la durée, le nombre d’enfants, le lieu ou certains besoins spécifiques.
+          </p>
+        </div>
+      </section>
+
+      <section className="pb-24 md:pb-28">
+        <div className="mx-auto w-[min(980px,calc(100%-2rem))] md:w-[min(980px,calc(100%-3rem))]">
+          <div className="reveal rounded-[30px] border border-[#DDD4C9] bg-[#FCFAF7] px-6 py-10 text-center shadow-[0_12px_34px_rgba(31,29,26,0.04)] md:px-10 md:py-12">
+            <SectionKicker>Parlons de votre mariage</SectionKicker>
+
+            <h2
+              className="mx-auto mt-4 max-w-[760px] text-[clamp(2rem,3vw,3.2rem)] leading-[1.1] text-[#1F1D1A]"
+              style={{ fontFamily: 'var(--serif)', fontWeight: 400 }}
+            >
+              Un premier échange nous permet de comprendre votre vision avec justesse.
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-[620px] text-[15px] leading-8 text-[#5F5952]">
+              Nous pourrons ensuite vous proposer un accompagnement cohérent, fluide et profondément adapté
+              à la manière dont vous souhaitez vivre cette journée.
+            </p>
+
+            <div className="mt-8">
+              <Link
+                to="/contact"
+                className="inline-flex items-center rounded-full bg-[#1F2619] px-7 py-3 text-[11px] uppercase tracking-[0.18em] text-white transition hover:opacity-92"
+              >
+                Nous contacter
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}

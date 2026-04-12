@@ -1,0 +1,384 @@
+import { useEffect } from "react";
+import styles from "./Home.module.css";
+
+const prestations = [
+  {
+    img: "/images/sections/welcome.png",
+    title: "Orchestration\nde votre journée",
+    desc: "Nous coordonnons chaque moment pour une journée sans tension.",
+  },
+  {
+    img: "/images/sections/kids-coordinator.png",
+    title: "Prise en charge\ndes enfants",
+    desc: "Des activités adaptées et une présence bienveillante tout au long de la journée.",
+  },
+  {
+    img: "/images/details/table-setting.png",
+    title: "Souvenirs\nphoto & vidéo",
+    desc: "Des images naturelles et pleines d’émotion, sans mise en scène.",
+  },
+  {
+    img: "/images/hero/hero-side.png",
+    title: "Ambiance\nsoirée dansante",
+    desc: "Un DJ passionné pour faire monter l’énergie et créer une vraie soirée.",
+  },
+];
+
+const packs = [
+  {
+    name: "L’ESSENTIELLE",
+    text: "L’essentiel pour une journée bien orchestrée.",
+    price: "1300 €",
+    items: [
+      "Orchestration de la journée",
+      "Animation de la soirée",
+      "Matériel son et lumière",
+    ],
+  },
+  {
+    name: "LA SIGNATURE",
+    text: "L’équilibre parfait entre expérience, sérénité et présence.",
+    price: "1700 €",
+    items: [
+      "Orchestration de la journée",
+      "Prise en charge des enfants",
+      "Photo & vidéo",
+      "Animation de la soirée",
+      "Matériel son et lumière",
+    ],
+    featured: true,
+  },
+  {
+    name: "L’EXCELLENCE",
+    text: "L’expérience complète, sans compromis.",
+    price: "2200 €",
+    items: [
+      "Orchestration de la journée",
+      "Prise en charge des enfants",
+      "Photo & vidéo (journée + soirée)",
+      "Animation de la soirée",
+      "Matériel son et lumière",
+      "Options premium",
+    ],
+  },
+];
+
+export default function Home() {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -4% 0px",
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <img
+          src="/images/hero/Banderole.png"
+          alt="Maison Camelys"
+          className={styles.heroImage}
+        />
+      </section>
+
+      <section className={`${styles.conviction} reveal reveal-up`}>
+        <div className={styles.container}>
+          <div className={styles.convictionShell}>
+            <div className={styles.convictionText}>
+              <p className={styles.label}>NOTRE CONVICTION</p>
+              <h2 className={styles.convictionTitle}>
+                Un mariage est un moment unique,
+                <br />
+                mais aussi une journée <em>intense à gérer.</em>
+              </h2>
+              <p className={styles.convictionBody}>
+                Notre rôle : vous permettre de lâcher prise, en prenant soin de
+                chaque détail, de vos invités et de l’ambiance.
+              </p>
+              <p className={styles.convictionBodySecondary}>
+                Vous vivez pleinement votre journée. Nous veillons à son rythme,
+                à sa fluidité et au confort de ceux qui vous entourent.
+              </p>
+              <a href="/prestations" className={styles.convictionLink}>
+                Découvrir nos accompagnements
+              </a>
+            </div>
+
+            <div className={styles.convictionVisual}>
+              <div className={`${styles.convictionMainCard} reveal reveal-up reveal-delay-1`}>
+                <img src="/images/details/table-setting.png" alt="Table élégante de mariage" />
+              </div>
+
+              <div className={styles.convictionSideGrid}>
+                <div className={`${styles.convictionSmallCard} reveal reveal-up reveal-delay-2`}>
+                  <img src="/images/sections/kids-walk.png" alt="Enfants accompagnés pendant le mariage" />
+                </div>
+                <div className={`${styles.convictionSmallCard} reveal reveal-up reveal-delay-2`}>
+                  <img src="/images/hero/hero-side.png" alt="Ouverture de bal et ambiance du soir" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.duo} reveal reveal-fade`}>
+        <div className={styles.container}>
+          <div className={styles.duoIntro}>
+            <p className={styles.duoLabel}>UN DUO COMPLÉMENTAIRE</p>
+            <h2 className={styles.duoTitle}>
+              Deux sensibilités, une même mission :
+              <br />
+              prendre soin de votre journée.
+            </h2>
+            <p className={styles.duoLead}>
+              Une présence fluide, discrète et profondément humaine, pensée pour
+              que chaque instant soit vécu pleinement.
+            </p>
+          </div>
+
+          <div className={styles.duoEditorial}>
+            <article className={`${styles.duoPanel} ${styles.duoPanelLeft} reveal reveal-up`}>
+              <div className={styles.duoPanelImage}>
+                <img src="/images/sections/welcome.png" alt="Florian" />
+              </div>
+              <div className={styles.duoPanelContent}>
+                <p className={styles.duoPanelKicker}>FLORIAN</p>
+                <h3>Orchestration & ambiance</h3>
+                <p>
+                  Il coordonne les temps forts, anticipe les transitions et
+                  veille à la fluidité de chaque moment, avec calme et maîtrise.
+                </p>
+              </div>
+            </article>
+
+            <div className={`${styles.duoCenter} reveal reveal-up reveal-delay-1`}>
+              <div className={styles.duoCenterCard}>
+                <img
+                  src="/branding/logo-camelys.png"
+                  alt="Maison Camelys"
+                  className={styles.duoCenterLogo}
+                />
+                <p className={styles.duoCenterText}>
+                  Ensemble, nous formons une présence complémentaire :
+                  l’un veille au rythme et à l’orchestration, l’autre au confort,
+                  à la douceur et à l’attention portée aux invités.
+                </p>
+              </div>
+            </div>
+
+            <article className={`${styles.duoPanel} ${styles.duoPanelRight} reveal reveal-up reveal-delay-1`}>
+              <div className={styles.duoPanelImage}>
+                <img src="/images/sections/kids-coordinator.png" alt="Camille" />
+              </div>
+              <div className={styles.duoPanelContent}>
+                <p className={styles.duoPanelKicker}>CAMILLE</p>
+                <h3>Enfants & bienveillance</h3>
+                <p>
+                  Elle crée un espace rassurant pour les enfants, avec une
+                  attention douce, juste et sereine, pour que chacun trouve sa place.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.band} reveal reveal-fade`}>
+        <div className={styles.bandOverlay} />
+        <div className={styles.bandInner}>
+          <h2 className={styles.bandTitle}>
+            Votre mariage devient une expérience
+            <br />
+            fluide, joyeuse et inoubliable.
+          </h2>
+
+          <div className={styles.bandFacts}>
+            <div>
+              <strong>Invités heureux</strong>
+              <span>Accueil fluide</span>
+            </div>
+            <div>
+              <strong>Enfants épanouis</strong>
+              <span>Présence bienveillante</span>
+            </div>
+            <div>
+              <strong>Parents sereins</strong>
+              <span>Lâcher-prise réel</span>
+            </div>
+            <div>
+              <strong>Souvenirs précieux</strong>
+              <span>Atmosphère durable</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      
+      
+      <section className={`${styles.prestationsTimeline} reveal reveal-fade`}>
+        <div className={styles.container}>
+          <div className={`${styles.timelineIntro} reveal reveal-up`}>
+            <p className={styles.timelineLabel}>L’EXPÉRIENCE CAMELYS</p>
+            <h2 className={styles.timelineTitle}>
+              Du premier accueil à la dernière danse,
+              <br />
+              une journée qui se vit pleinement.
+            </h2>
+            <p className={styles.timelineLead}>
+              Maison Camelys accompagne le rythme vivant de votre mariage avec
+              élégance, discrétion et maîtrise. Notre présence ne cherche pas à
+              occuper l’espace : elle permet à chaque moment de trouver sa juste place.
+            </p>
+          </div>
+
+          <div className={`${styles.timelineHero} reveal reveal-up reveal-delay-1`}>
+            <img
+              src="/images/A16.png"
+              alt="Accueil et orchestration élégante d’un mariage"
+              className={styles.timelineHeroImage}
+            />
+            <div className={styles.timelineHeroCard}>
+              <span className={styles.timelineHeroKicker}>Une continuité d’expérience</span>
+              <p>
+                Vous profitez de votre journée. Nous veillons à son équilibre,
+                à ses transitions, au confort de vos invités et à l’atmosphère
+                qui l’accompagne du début jusqu’à la soirée.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.timelineSequence}>
+            <article className={`${styles.timelineScene} ${styles.timelineScenePrimary} reveal reveal-up`}>
+              <div className={styles.timelineSceneMedia}>
+                <img
+                  src="/images/A13.png"
+                  alt="Mariage orchestré avec fluidité dès l’accueil des invités"
+                />
+              </div>
+              <div className={styles.timelineSceneContent}>
+                <div className={styles.timelineNumber}>01</div>
+                <p className={styles.timelineEyebrow}>Le début de journée</p>
+                <h3>Accueillir, coordonner, faire respirer chaque moment.</h3>
+                <p>
+                  Dès les premiers instants, nous veillons au rythme de la journée,
+                  aux temps forts, aux passages subtils, à l’énergie du lieu et
+                  à la fluidité générale. Rien n’est figé, tout s’enchaîne avec naturel.
+                </p>
+              </div>
+            </article>
+
+            <article className={`${styles.timelineScene} ${styles.timelineSceneOffset} reveal reveal-up reveal-delay-1`}>
+              <div className={styles.timelineSceneContent}>
+                <div className={styles.timelineNumber}>02</div>
+                <p className={styles.timelineEyebrow}>Le confort de vos proches</p>
+                <h3>Les enfants trouvent leur place, les parents profitent vraiment.</h3>
+                <p>
+                  Nous créons un cadre doux, vivant et rassurant pour les enfants,
+                  pendant que les invités et les parents vivent pleinement la journée.
+                  Cette attention discrète change profondément l’expérience du mariage.
+                </p>
+              </div>
+              <div className={styles.timelineSceneMedia}>
+                <img
+                  src="/images/A29.png"
+                  alt="Enfants accompagnés avec douceur pendant un mariage"
+                />
+              </div>
+            </article>
+
+            <article className={`${styles.timelineScene} reveal reveal-up reveal-delay-2`}>
+              <div className={styles.timelineSceneMedia}>
+                <img
+                  src="/images/A24.png"
+                  alt="Première danse et ambiance élégante de soirée"
+                />
+              </div>
+              <div className={styles.timelineSceneContent}>
+                <div className={styles.timelineNumber}>03</div>
+                <p className={styles.timelineEyebrow}>L’émotion qui reste</p>
+                <h3>Une atmosphère juste, des souvenirs sincères, une soirée qui s’élève.</h3>
+                <p>
+                  Les regards, les élans, la lumière, l’ambiance, la montée progressive
+                  de l’énergie : nous accompagnons la journée jusqu’à sa dernière vibration,
+                  sans excès, sans lourdeur, avec une élégance constante.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div className={`${styles.timelineClosing} reveal reveal-fade`}>
+            <p className={styles.timelineClosingText}>
+              Plus qu’une suite de prestations, Maison Camelys crée une continuité
+              humaine et raffinée, pour que votre mariage reste fluide, beau et pleinement vécu.
+            </p>
+            <a href="/prestations" className={styles.timelineLink}>
+              Découvrir l’ensemble de nos accompagnements
+            </a>
+          </div>
+        </div>
+      </section>
+<section className={`${styles.pricing} reveal reveal-up reveal-delay-1`}>
+        <div className={styles.container}>
+          <p className={styles.labelCenter}>NOS FORMULES</p>
+          <h2 className={styles.sectionTitle}>
+            Des accompagnements sur-mesure, pensés pour vous.
+          </h2>
+
+          <div className={styles.pricingGrid}>
+            {packs.map((pack) => (
+              <article
+                key={pack.name}
+                className={`${styles.priceCard} ${pack.featured ? styles.featured : ""} reveal reveal-up reveal-delay-1`}
+              >
+                <h3>{pack.name}</h3>
+                <p className={styles.priceText}>{pack.text}</p>
+                <ul>
+                  {pack.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <div className={styles.priceWrap}>
+                  <span className={styles.price}>{pack.price}</span>
+                  <small>à partir de</small>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={`${styles.finalCta} reveal reveal-fade`}>
+        <div className={styles.container}>
+          <p className={styles.labelCenter}>PARLONS DE VOTRE MARIAGE</p>
+          <h2 className={styles.finalTitle}>
+            Une présence élégante et humaine
+            <br />
+            au cœur de votre journée.
+          </h2>
+          <p className={styles.finalText}>
+            Chaque mariage est unique. Prenons le temps d’échanger pour imaginer
+            ensemble une journée fluide, raffinée et fidèle à votre vision.
+          </p>
+          <a href="/contact" className={styles.ctaButton}>Nous contacter</a>
+        </div>
+      </section>
+    </main>
+  );
+}

@@ -3,7 +3,7 @@ import { useReveal } from '../hooks/useReveal'
 import s from './About.module.css'
 
 // Images Unsplash — CDN stable, licence libre
-const HERO_IMG = "/images/A21.png"
+const HERO_IMG = "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=85&fit=crop"
 const IMG2    = "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=900&q=80&fit=crop"
 const IMG3    = "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&q=80&fit=crop"
 
